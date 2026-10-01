@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dockboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><clipPath id="squircle" clipPathUnits="objectBoundingBox"><path id="squirclePath"/></clipPath></defs>
+</svg>
+
+<header class="top">
+  <div>
+    <h1>Dockboard</h1>
+    <p id="subtitle" class="muted"></p>
+  </div>
+  <div class="actions">
+    <button id="syncBtn" class="pill">Connect Google Calendar</button>
+    <button id="settingsBtn" class="pill ghost" aria-label="Settings">Settings</button>
+  </div>
+</header>
+
+<nav id="filters" class="filters" aria-label="Categories"></nav>
+
+<main>
+  <section id="board" class="board" aria-live="polite"></section>
+  <details id="doneWrap" class="done" hidden>
+    <summary>Completed <span id="doneCount"></span></summary>
+    <div id="doneBoard" class="board small"></div>
+  </details>
+</main>
+
+<div id="sheet" class="overlay" hidden>
+  <article class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <button class="close" data-close aria-label="Close">×</button>
+    <div class="sheet-head">
+      <div id="sheetBadge" class="badge"></div>
+      <h2 id="sheetTitle"></h2>
+      <p id="sheetMeta" class="muted"></p>
+    </div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <p id="progressText" class="muted tiny"></p>
+    <p id="sheetNotes" class="notes"></p>
+    <h3>Next steps</h3>
+    <ul id="subtasks" class="subtasks"></ul>
+    <form id="subForm" class="subform">
+      <input id="subInput" placeholder="Add a small step…" autocomplete="off">
+      <button class="pill">Add</button>
+    </form>
+    <div class="sheet-foot">
+      <button id="doneBtn" class="pill primary"></button>
+      <a id="openCal" class="pill ghost" target="_blank" rel="noopener">Open in Calendar</a>
+    </div>
+  </article>
+</div>
+
+<div id="settings" class="overlay" hidden>
+  <article class="sheet" role="dialog" aria-modal="true" aria-label="Settings">
+    <button class="close" data-close aria-label="Close">×</button>
+    <h2>Settings</h2>
+    <h3>Google connection</h3>
+    <p class="muted tiny">Create an OAuth Web Client ID in Google Cloud Console (Calendar API enabled), add this site's URL as an authorized JavaScript origin, and paste it here. Your data stays in your browser.</p>
+    <input id="clientId" placeholder="xxxx.apps.googleusercontent.com" autocomplete="off">
+    <h3>Map calendars to categories</h3>
+    <p class="muted tiny">Each Google calendar becomes a category. Leave blank to ignore it.</p>
+    <div id="mapping" class="mapping"></div>
+    <div class="sheet-foot">
+      <button id="saveSettings" class="pill primary">Save</button>
+      <button id="demoBtn" class="pill ghost">Use demo data</button>
+    </div>
+  </article>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
