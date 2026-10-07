@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>One Thing</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <header>
+    <p id="greeting" class="muted"></p>
+    <h1>One thing at a time.</h1>
+  </header>
+
+  <form id="addForm" class="add">
+    <input id="addInput" placeholder="What's on your mind?" autocomplete="off" enterkeyhint="done" aria-label="Add a task">
+    <button class="round" aria-label="Add">+</button>
+  </form>
+
+  <section id="focus" class="focus" aria-live="polite"></section>
+
+  <section>
+    <div class="row-head"><h2>Today <span id="todayCount" class="muted"></span></h2><button id="planBtn" class="link">Plan my day</button></div>
+    <ul id="today" class="list"></ul>
+  </section>
+
+  <section>
+    <div class="row-head"><h2>Later <span id="laterCount" class="muted"></span></h2></div>
+    <ul id="later" class="list"></ul>
+  </section>
+
+  <details id="doneWrap" class="done" hidden>
+    <summary>Done <span id="doneCount"></span></summary>
+    <ul id="done" class="list"></ul>
+  </details>
+</main>
+<div id="toast" class="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
